@@ -1,7 +1,3 @@
-# React Go
-
-Simple React boilerplate to start you up.
-Includes redux, redux-thunk, react-router, simple express server to serve project and build config for dev and prod.
 
 ## Installation
 
