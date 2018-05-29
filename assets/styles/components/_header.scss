@@ -1,0 +1,9 @@
+@import '../base/variables';
+
+.AppHeader {
+    height: $headerHeight;
+}
+
+.logout_btn {
+    padding-left: 0 !important;
+}

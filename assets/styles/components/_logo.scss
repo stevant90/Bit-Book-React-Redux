@@ -1,0 +1,13 @@
+@import '../base/variables';
+
+.Logo {
+    background-color: rgba($dark, 0.90);
+    color: $light;
+    text-align: center;
+    padding: 15px;
+}
+
+.Logo__inner {
+    font-family: 'Lobster', cursive;
+    font-size: 32px;
+}

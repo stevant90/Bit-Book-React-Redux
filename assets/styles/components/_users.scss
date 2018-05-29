@@ -1,0 +1,12 @@
+@import '../base/variables';
+
+.UsersList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;   
+}
+
+img {
+    width: 100%;
+    height: 60%;
+}
