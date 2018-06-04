@@ -1,3 +1,5 @@
+const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+
 export default {
     name: value => {
         return {
@@ -20,7 +22,7 @@ export default {
     password: value => {
         return {
             isValid: value.length > 0 && value.length > 5,
-            errorMessage: value.length < 6  && value.length > 0 ?'Password must be at least 6 characters long' : 'Please enter password'
+            errorMessage: value.length < 6  && value.length > 0 ? 'Password must be at least 6 characters long' : 'Please enter password'
         };
     },
     repeatPassword: (password, value) => {
@@ -31,8 +33,8 @@ export default {
     },
     avatarUrl: value => {
         return {
-            isValid: value.length > 0,
-            errorMessage: 'Please enter image url'
+            isValid: value.length > 0 && value.match(urlRegex),
+            errorMessage: value.length > 0 && !value.match(urlRegex) ? 'Please enter valid url' : 'Please enter url'
         };
     },
     aboutShort: value => {

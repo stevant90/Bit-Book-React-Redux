@@ -21,8 +21,8 @@ export default class SimpleInput extends Component {
         onFocus: PropTypes.func,
         validation: PropTypes.func,
         isValid: PropTypes.bool,
-        disabled: PropTypes.bool,
         value: PropTypes.string,
+        label: PropTypes.string
     };
 
     static defaultProps = {
@@ -52,7 +52,6 @@ export default class SimpleInput extends Component {
         this.setState({ value });
 
         this.props.onChange(name, value);
-
     }
 
     clearError = event => {
@@ -73,6 +72,7 @@ export default class SimpleInput extends Component {
             onFocus,
             validation,
             value,
+            label,
             ...rest
         } = this.props;
 
@@ -85,6 +85,7 @@ export default class SimpleInput extends Component {
                     onChange={this.handleInputChange}
                     onFocus={this.clearError}
                     value={value || this.state.value}
+                    label={label}
                     {...rest}
                 />
                 {!this.state.isValid

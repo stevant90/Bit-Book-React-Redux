@@ -5,6 +5,7 @@ import users from './reducers/users';
 import singleUser from './reducers/singleUser';
 import profile from './reducers/profile';
 import updateProfile from './reducers/updateProfile';
+import uploadImage from './reducers/uploadImage';
 
 
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     users,
     singleUser,
     profile,
-    updateProfile
+    updateProfile,
+    uploadImage
 });

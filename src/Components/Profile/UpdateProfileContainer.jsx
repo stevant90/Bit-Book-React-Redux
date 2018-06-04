@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Button, Icon } from 'semantic-ui-react';
 
 import { updateProfile } from '../../Redux/actions/profile/updateProfile';
+import { uploadImage } from '../../Redux/actions/profile/uploadImage';
 import { fetchProfile } from '../../Redux/actions/profile/profile';
 import { clearFormStatus } from '../../Redux/actions/clearFormStatus';
 import UpdateProfile from './UpdateProfile';
@@ -22,6 +23,7 @@ class UpdateProfileContainer extends Component {
         clearFormStatus: PropTypes.func,
         fetchProfile: PropTypes.func,
         profile: PropTypes.object,
+        uploadImage: PropTypes.func,
     };
 
     show = dimmer => () => {
@@ -41,6 +43,7 @@ class UpdateProfileContainer extends Component {
             clearFormStatus,
             fetchProfile,
             profile,
+            uploadImage,
         } = this.props;
 
         const { open, dimmer } = this.state;
@@ -58,7 +61,7 @@ class UpdateProfileContainer extends Component {
                     clearFormStatus={clearFormStatus}
                     refreshProfile={fetchProfile}
                     profile={profile}
-
+                    uploadImage={uploadImage}
                 />
             </div>
         );
@@ -80,6 +83,9 @@ const mapDispatchToProps = dispatch => {
         },
         fetchProfile: () => {
             return dispatch(fetchProfile());
+        },
+        uploadImage: (params, callback) => {
+            return dispatch(uploadImage(params, callback));
         },
         clearFormStatus: () => {
             return dispatch(clearFormStatus());

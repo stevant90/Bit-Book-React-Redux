@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Modal, Image, Header, Button, Form, Message } from 'semantic-ui-react';
+import { Modal, Image, Button, Form, Message } from 'semantic-ui-react';
 
 import UpdateForm from './UpdateForm';
 
@@ -16,7 +16,7 @@ export default class UpdateProfile extends Component {
         clearFormStatus: PropTypes.func,
         refreshProfile: PropTypes.func,
         profile: PropTypes.object,
-
+        uploadImage: PropTypes.func,
     };
 
     render() {
@@ -31,6 +31,7 @@ export default class UpdateProfile extends Component {
             close,
             refreshProfile,
             profile,
+            uploadImage,
         } = this.props;
 
         return (
@@ -40,7 +41,6 @@ export default class UpdateProfile extends Component {
                 <Modal.Content image>
                     <Image wrapped size='medium' src={profile.avatarUrl} />
                     <Modal.Description>
-                        <Header>Default Profile Image</Header>
                         <UpdateForm
                             updateProfile={updateProfile}
                             close={close}
@@ -49,7 +49,7 @@ export default class UpdateProfile extends Component {
                             clearFormStatus={clearFormStatus}
                             refreshProfile={refreshProfile}
                             profile={profile}
-
+                            uploadImage={uploadImage}
                         />
                     </Modal.Description>
                 </Modal.Content>
