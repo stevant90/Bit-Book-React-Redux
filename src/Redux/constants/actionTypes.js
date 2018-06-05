@@ -35,4 +35,8 @@ export const actionTypes = keyMirror({
 	REQUEST_UPLOAD_IMAGE: null,
 	RECEIVED_UPLOAD_IMAGE: null,
 	ERROR_UPLOAD_IMAGE: null,
+
+	REQUEST_POSTS: null,
+	RECEIVED_POSTS: null,
+	ERROR_POSTS: null,
 });
