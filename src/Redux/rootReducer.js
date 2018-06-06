@@ -7,6 +7,7 @@ import profile from './reducers/profile';
 import updateProfile from './reducers/updateProfile';
 import uploadImage from './reducers/uploadImage';
 import posts from './reducers/posts';
+import singlePost from './reducers/singlePost';
 
 
 export default combineReducers({
@@ -17,5 +18,6 @@ export default combineReducers({
     profile,
     updateProfile,
     uploadImage,
-    posts
+    posts,
+    singlePost
 });

@@ -45,7 +45,7 @@ class _AppContainer extends Component {
     }
 
     render() {
-        
+
         const { hasHeaderAndFooter, requiresLogin, Component } = this.props;
 
         return this.sessionStorageEnabled() ? (
