@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Grid, Message, Segment, Feed, Icon } from 'semantic-ui-react';
+import { Grid, Message, Segment, Feed, Icon, Button } from 'semantic-ui-react';
 
 export default class SingleTextPost extends Component {
 
@@ -23,7 +23,8 @@ export default class SingleTextPost extends Component {
 
         return (
             <Grid stackable>
-
+                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large'/>Go back</Link>
+              
                 {!!errorMessage
                     && <Message
                         error
@@ -38,7 +39,7 @@ export default class SingleTextPost extends Component {
                                 <Feed.Content>
                                     <Feed.Summary>
                                         <Link to={`/people/${userId}`}>{userDisplayName}</Link>
-                                    <Feed.Date> at: {displayPostDate} in: {postTime}</Feed.Date>
+                                        <Feed.Date> at: {displayPostDate} in: {postTime}</Feed.Date>
                                     </Feed.Summary>
                                     <Feed.Extra text className='h-textRight'>
                                         {text}

@@ -22,12 +22,13 @@ export default class SingleImagePost extends Component {
 
         return (
             <Grid stackable>
-
+                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large'/>Go back</Link>
+                
                 {!!errorMessage
                     && <Message
-                        error
-                        header='Whoops!'
-                        content={errorMessage}
+                    error
+                    header='Whoops!'
+                    content={errorMessage}
                     />}
 
                 <Segment className='SinglePost'>

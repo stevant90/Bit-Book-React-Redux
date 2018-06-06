@@ -12,7 +12,6 @@ export default class NewsFeedList extends Component {
         errorMessage: PropTypes.string
     };
 
-
     render() {
 
         const { post, errorMessage } = this.props;
