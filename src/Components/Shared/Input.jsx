@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Message } from 'semantic-ui-react';
+import { Form, Message, TextArea } from 'semantic-ui-react';
 
 export default class SimpleInput extends Component {
     constructor(props) {
@@ -22,7 +22,8 @@ export default class SimpleInput extends Component {
         validation: PropTypes.func,
         isValid: PropTypes.bool,
         value: PropTypes.string,
-        label: PropTypes.string
+        label: PropTypes.string,
+        textArea: PropTypes.string
     };
 
     static defaultProps = {
@@ -73,21 +74,38 @@ export default class SimpleInput extends Component {
             validation,
             value,
             label,
+            textArea,
             ...rest
         } = this.props;
 
         return (
             <Form.Field>
-                <Form.Input
-                    type={type}
-                    placeholder={placeholder}
-                    name={name}
-                    onChange={this.handleInputChange}
-                    onFocus={this.clearError}
-                    value={value || this.state.value}
-                    label={label}
-                    {...rest}
-                />
+                {textArea === 'textArea'
+                    && <TextArea
+                        autoHeight
+                        type={type}
+                        placeholder={placeholder}
+                        name={name}
+                        onChange={this.handleInputChange}
+                        onFocus={this.clearError}
+                        value={value || this.state.value}
+                        label={label}
+                        {...rest}
+                    />}
+
+                {!textArea
+                    && <Form.Input
+                        type={type}
+                        placeholder={placeholder}
+                        name={name}
+                        onChange={this.handleInputChange}
+                        onFocus={this.clearError}
+                        value={value || this.state.value}
+                        label={label}
+                        {...rest}
+                    />}
+
+
                 {!this.state.isValid
                     && <Message
                         error

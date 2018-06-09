@@ -43,4 +43,8 @@ export const actionTypes = keyMirror({
 	REQUEST_SINGLE_POST: null,
 	RECEIVED_SINGLE_POST: null,
 	ERROR_SINGLE_POST: null,
+
+	REQUEST_NEW_POST: null,
+	RECEIVED_NEW_POST: null,
+	ERROR_NEW_POST: null,
 });

@@ -45,7 +45,8 @@ export default class SimpleForm extends Component {
                 success
                 {...rest}
             >
-                {children.map((child, index) => {
+
+               {children.map((child, index) => {
                     if (!child.type) {
                         return child;
                     }
@@ -53,7 +54,7 @@ export default class SimpleForm extends Component {
                     return child.type.name === 'SimpleInput'
                         ? { ...child, ref: el => { this.fields[index] = el } }
                         : child;
-                })}
+                })} 
 
                 {!!formError
                     && <Message

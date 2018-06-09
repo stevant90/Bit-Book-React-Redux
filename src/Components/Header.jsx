@@ -7,11 +7,12 @@ import { Link, Redirect } from 'react-router-dom';
 
 import { clearFormStatus } from '../Redux/actions/clearFormStatus';
 import { logout } from '../Redux/actions/auth/logout';
+import NewPostContainer from './NewPost/NewPostContainer';
 
 class _AppHeader extends Component {
     constructor(props) {
         super(props);
-        
+
         this.state = {
             activeItem: props.location.pathname,
         };
@@ -31,7 +32,7 @@ class _AppHeader extends Component {
     }
 
     handleItemClick = activeItem => {
-     
+
         this.setState({ activeItem });
     };
 
@@ -46,27 +47,30 @@ class _AppHeader extends Component {
                         className='h-marginR--md'
                         content={menuHeader}
                     />
-                    <Link 
-                        to='/' 
-                        className={this.state.activeItem === '/' ? "item active" : "item"} 
+                    <Link
+                        to='/'
+                        className={this.state.activeItem === '/' ? "item active" : "item"}
                         onClick={() => this.handleItemClick('/')}
                     >
                         Home
                     </Link>
-                    <Link 
-                        to='/people' 
+                    <Link
+                        to='/people'
                         className={this.state.activeItem === '/people' ? "item active" : "item"}
                         onClick={() => this.handleItemClick('/people')}
                     >
                         People
                     </Link>
-                    <Link 
+                    <Link
                         to='/profile'
                         className={this.state.activeItem === '/profile' ? "item active" : "item"}
                         onClick={() => this.handleItemClick('/profile')}
                     >
                         Profile
                     </Link>
+                    <Menu.Item>
+                        <NewPostContainer />
+                    </Menu.Item>
                     <Menu.Menu position='right'>
                         <Menu.Item className='logout_btn'>
                             <Button color='teal' onClick={this.handleLogout}>Logout</Button>
