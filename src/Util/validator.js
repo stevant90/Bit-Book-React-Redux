@@ -1,4 +1,5 @@
 const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
+const emailRegex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export default {
     name: value => {
@@ -15,8 +16,8 @@ export default {
     },
     email: value => {
         return {
-            isValid: value.length > 0 && value.includes('@'),
-            errorMessage: 'Please enter valid email address'
+            isValid: value.length > 0 && value.match(emailRegex),
+            errorMessage: value.length > 0 && !value.match(emailRegex) ? 'Please enter valid email address' : 'Please enter email'
         };
     },
     password: value => {
@@ -47,6 +48,12 @@ export default {
         return {
             isValid: value.length > 0,
             errorMessage: 'Please enter something about you'
+        };
+    },
+    text: value => {
+        return {
+            isValid: value.length > 0,
+            errorMessage: 'This field can\'t be empty'
         };
     },
     required: value => {

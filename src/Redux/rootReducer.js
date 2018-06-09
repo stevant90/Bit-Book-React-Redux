@@ -8,6 +8,7 @@ import updateProfile from './reducers/updateProfile';
 import uploadImage from './reducers/uploadImage';
 import posts from './reducers/posts';
 import singlePost from './reducers/singlePost';
+import newPost from './reducers/newPost';
 
 
 export default combineReducers({
@@ -19,5 +20,6 @@ export default combineReducers({
     updateProfile,
     uploadImage,
     posts,
-    singlePost
+    singlePost,
+    newPost
 });
