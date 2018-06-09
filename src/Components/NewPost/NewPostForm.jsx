@@ -114,6 +114,7 @@ export default class NewPostForm extends Component {
                 {type === 'text'
                     && <SimpleInput
                         type='text'
+                        textArea='textArea'
                         placeholder='Enter text'
                         name='text'
                         onChange={this.handleInputChange}
