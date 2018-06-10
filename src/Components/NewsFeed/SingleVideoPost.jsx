@@ -2,24 +2,35 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe';
-import { Grid, Feed, Icon, Segment } from 'semantic-ui-react';
+import { Grid, Feed, Icon, Segment, Message, Button, Popup } from 'semantic-ui-react';
 
 export default class SingleVideoPost extends Component {
 
     static propTypes = {
         post: PropTypes.object,
-        errorMessage: PropTypes.string
+        errorMessage: PropTypes.string,
+        deletePost: PropTypes.func,
+        deleteErrorMessage: PropTypes.string,
+        ownId: PropTypes.number,
     };
+
+    delete = () => {
+        const { id } = this.props.post;
+
+        this.props.deletePost(id);
+    }
 
     render() {
 
-        const { post, errorMessage } = this.props;
+        const { post, errorMessage, ownId } = this.props;
         const { dateCreated, commentsNum, videoUrl, userDisplayName, userId } = post;
 
         const postDate = new Date(dateCreated);
         const displayPostDate = postDate.toDateString();
         const postTime = postDate.toLocaleTimeString();
         const displayComments = commentsNum > 1 ? 'Comments' : 'Comment'
+
+        let deleteBtn = ownId === userId ? <Popup trigger={<Button onClick={this.delete} color='red' icon='trash' />} content='Delete' inverted /> : '';
 
         const rootEmbedUrl = 'https://www.youtube.com/embed/';
         const partOfUrl = 'https://youtu.be/';
@@ -40,8 +51,8 @@ export default class SingleVideoPost extends Component {
         }
         return (
             <Grid stackable>
-                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large'/>Go back</Link>
-            
+                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</Link>
+
                 {!!errorMessage
                     && <Message
                         error
@@ -52,6 +63,7 @@ export default class SingleVideoPost extends Component {
                 <Segment className='SinglePost'>
                     <Grid.Row>
                         <Feed>
+                            {deleteBtn}
                             <Feed.Event>
                                 <Feed.Content>
                                     <Feed.Summary>

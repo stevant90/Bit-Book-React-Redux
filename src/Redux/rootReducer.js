@@ -9,6 +9,7 @@ import uploadImage from './reducers/uploadImage';
 import posts from './reducers/posts';
 import singlePost from './reducers/singlePost';
 import newPost from './reducers/newPost';
+import deletePost from './reducers/deletePost';
 
 
 export default combineReducers({
@@ -21,5 +22,6 @@ export default combineReducers({
     uploadImage,
     posts,
     singlePost,
-    newPost
+    newPost,
+    deletePost
 });
