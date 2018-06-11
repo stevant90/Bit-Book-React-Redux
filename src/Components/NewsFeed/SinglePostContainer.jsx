@@ -9,6 +9,7 @@ import { deletePost } from '../../Redux/actions/newsFeed/deletePost';
 import SingleTextPost from './SingleTextPost';
 import SingleImagePost from './SingleImagePost';
 import SingleVideoPost from './SingleVideoPost';
+import CommentsContainer from '../Comments/CommentsContainer';
 
 class _SinglePostContainer extends Component {
 
@@ -18,12 +19,11 @@ class _SinglePostContainer extends Component {
         postId: PropTypes.string,
         match: PropTypes.object,
         singlePost: PropTypes.object,
-        errorMessage: PropTypes.string,
         fetchProfile: PropTypes.func,
         deletePost: PropTypes.func,
         deleteErrorMessage: PropTypes.string,
         profile: PropTypes.object,
-        history: PropTypes.object
+        history: PropTypes.object,
     };
 
     componentDidMount() {
@@ -33,21 +33,27 @@ class _SinglePostContainer extends Component {
         this.props.fetchSinglePost(type, postId);
 
         this.props.fetchProfile();
-
     }
 
     refreshPage = () => {
-        this.props.history.replace('/');
+        const { deleteErrorMessage } = this.props;
+
+        if (!deleteErrorMessage) {
+            this.props.history.replace('/');
+        }
     }
 
     delete = (id) => {
+
         this.props.deletePost(id, this.refreshPage);
 
     }
 
     render() {
 
-        const { singlePost, errorMessage, deletePost, deleteErrorMessage, profile } = this.props;
+        const { singlePost, deletePost, deleteErrorMessage, profile } = this.props;
+
+        let { postId } = this.props.match.params;
 
         let ownId;
 
@@ -57,16 +63,14 @@ class _SinglePostContainer extends Component {
 
         if (singlePost.type === 'text') {
             return (
-                <div className='SinglePostPage'>
+                <div>
                     <SingleTextPost
                         post={singlePost}
-                        errorMessage={errorMessage}
                         deletePost={this.delete}
                         deleteErrorMessage={deleteErrorMessage}
                         ownId={ownId}
-
-
                     />
+                    <CommentsContainer postId={postId} />
                 </div>
             );
         }
@@ -76,12 +80,11 @@ class _SinglePostContainer extends Component {
                 <div>
                     <SingleImagePost
                         post={singlePost}
-                        errorMessage={errorMessage}
                         deletePost={this.delete}
                         deleteErrorMessage={deleteErrorMessage}
                         ownId={ownId}
-
                     />
+                    <CommentsContainer postId={postId} />
                 </div>
             );
         }
@@ -90,12 +93,11 @@ class _SinglePostContainer extends Component {
             <div>
                 <SingleVideoPost
                     post={singlePost}
-                    errorMessage={errorMessage}
                     deletePost={this.delete}
                     deleteErrorMessage={deleteErrorMessage}
                     ownId={ownId}
-
                 />
+                <CommentsContainer postId={postId} />
             </div>
         );
     }
@@ -104,7 +106,6 @@ class _SinglePostContainer extends Component {
 const mapStateToProps = state => {
     return {
         singlePost: state.singlePost.post,
-        errorMessage: state.singlePost.errorMessage,
         deleteErrorMessage: state.deletePost.errorMessage,
         profile: state.profile.profile
     };

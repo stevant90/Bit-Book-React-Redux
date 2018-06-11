@@ -12,8 +12,6 @@ class NewsFeedContainer extends Component {
     static propTypes = {
         posts: PropTypes.array,
         fetchPosts: PropTypes.func,
-        errorMessage: PropTypes.string
-
     };
 
     componentDidMount() {
@@ -22,7 +20,7 @@ class NewsFeedContainer extends Component {
 
     render() {
 
-        const { posts, errorMessage } = this.props;
+        const { posts } = this.props;
 
         if (!posts) {
             return <Loader active>Loading</Loader>
@@ -31,7 +29,7 @@ class NewsFeedContainer extends Component {
         return (
             <div className='FeedPage'>
                 {posts.map(post => {
-                    return <NewsFeedList post={post} key={post.id} errorMessage={errorMessage} />
+                    return <NewsFeedList post={post} key={post.id} />
                 })}
             </div>
         );
@@ -41,7 +39,6 @@ class NewsFeedContainer extends Component {
 const mapStateToProps = state => {
     return {
         posts: state.posts.posts,
-        errorMessage: state.posts.errorMessage
     };
 }
 
