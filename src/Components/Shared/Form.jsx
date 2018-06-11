@@ -23,6 +23,9 @@ export default class SimpleForm extends Component {
 
         if (fieldsValidState.every(Boolean)) {
             this.props.onSubmit();
+            this.fields.map(field => {
+                field.state.value = ''
+            });
         }
     }
 
@@ -46,7 +49,7 @@ export default class SimpleForm extends Component {
                 {...rest}
             >
 
-               {children.map((child, index) => {
+                {children.map((child, index) => {
                     if (!child.type) {
                         return child;
                     }
@@ -54,7 +57,7 @@ export default class SimpleForm extends Component {
                     return child.type.name === 'SimpleInput'
                         ? { ...child, ref: el => { this.fields[index] = el } }
                         : child;
-                })} 
+                })}
 
                 {!!formError
                     && <Message

@@ -14,8 +14,6 @@ export const actionTypes = keyMirror({
 
 	CLEAR_FORM_STATUS: null,
 
-	CLEAR_INPUT: null,
-
 	REQUEST_USERS: null,
 	RECEIVED_USERS: null,
 	ERROR_USERS: null,
@@ -47,4 +45,16 @@ export const actionTypes = keyMirror({
 	REQUEST_NEW_POST: null,
 	RECEIVED_NEW_POST: null,
 	ERROR_NEW_POST: null,
+
+	REQUEST_DELETE_POST: null,
+	RECEIVED_DELETE_POST: null,
+	ERROR_DELETE_POST: null,
+
+	REQUEST_COMMENTS: null,
+	RECEIVED_COMMENTS: null,
+	ERROR_COMMENTS: null,
+
+	REQUEST_NEW_COMMENT: null,
+	RECEIVED_NEW_COMMENT: null,
+	ERROR_NEW_COMMENT: null
 });

@@ -1,5 +1,5 @@
 const urlRegex = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/;
-const emailRegex =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 export default {
     name: value => {
@@ -23,7 +23,7 @@ export default {
     password: value => {
         return {
             isValid: value.length > 0 && value.length > 5,
-            errorMessage: value.length < 6  && value.length > 0 ? 'Password must be at least 6 characters long' : 'Please enter password'
+            errorMessage: value.length < 6 && value.length > 0 ? 'Password must be at least 6 characters long' : 'Please enter password'
         };
     },
     repeatPassword: (password, value) => {
@@ -54,6 +54,12 @@ export default {
         return {
             isValid: value.length > 0,
             errorMessage: 'This field can\'t be empty'
+        };
+    },
+    comment: value => {
+        return {
+            isValid: value.length > 0,
+            errorMessage: 'Comment can\'t be empty'
         };
     },
     required: value => {

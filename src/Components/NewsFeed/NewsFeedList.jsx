@@ -2,19 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe';
-import { Grid, Image, Segment, Feed, Icon, Message } from 'semantic-ui-react';
+import { Grid, Image, Segment, Feed, Icon } from 'semantic-ui-react';
 
 export default class NewsFeedList extends Component {
 
 
     static propTypes = {
         post: PropTypes.object,
-        errorMessage: PropTypes.string
     };
 
     render() {
 
-        const { post, errorMessage } = this.props;
+        const { post } = this.props;
         const { userId, text, imageUrl, videoUrl, commentsNum, dateCreated, userDisplayName, id } = post;
 
         const postDate = new Date(dateCreated);
@@ -43,14 +42,6 @@ export default class NewsFeedList extends Component {
         if (post.type === 'text') {
             return (
                 <Grid stackable>
-
-                    {!!errorMessage
-                        && <Message
-                            error
-                            header='Whoops!'
-                            content={errorMessage}
-                        />}
-
                     <Segment className='FeedSegment'>
                         <Grid.Row>
                             <Feed>
@@ -82,14 +73,6 @@ export default class NewsFeedList extends Component {
         if (post.type === 'image') {
             return (
                 <Grid stackable>
-
-                    {!!errorMessage
-                        && <Message
-                            error
-                            header='Whoops!'
-                            content={errorMessage}
-                        />}
-
                     <Segment className='FeedSegment'>
                         <Grid.Row>
                             <Feed>
@@ -108,7 +91,7 @@ export default class NewsFeedList extends Component {
                                                 {commentsNum} {displayComments}
                                             </Feed.Like>
                                         </Feed.Meta>
-                                        <Link to={`/feed/ImagePosts/${id}`} className='SinglePostLink'>Read more >>></Link>                                        
+                                        <Link to={`/feed/ImagePosts/${id}`} className='SinglePostLink'>Read more >>></Link>
                                     </Feed.Content>
                                 </Feed.Event>
                             </Feed>
@@ -120,14 +103,6 @@ export default class NewsFeedList extends Component {
 
         return (
             <Grid stackable>
-
-                {!!errorMessage
-                    && <Message
-                        error
-                        header='Whoops!'
-                        content={errorMessage}
-                    />}
-
                 <Segment className='FeedSegment'>
                     <Grid.Row>
                         <Feed>
@@ -152,7 +127,7 @@ export default class NewsFeedList extends Component {
                                             {commentsNum} {displayComments}
                                         </Feed.Like>
                                     </Feed.Meta>
-                                    <Link to={`/feed/VideoPosts/${id}`} className='SinglePostLink'>Read more >>></Link>                                    
+                                    <Link to={`/feed/VideoPosts/${id}`} className='SinglePostLink'>Read more >>></Link>
                                 </Feed.Content>
                             </Feed.Event>
                         </Feed>
