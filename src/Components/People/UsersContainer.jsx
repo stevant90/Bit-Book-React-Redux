@@ -12,7 +12,7 @@ class UsersContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { users: this.props.users };
+        this.state = { users: [] };
     }
 
     static propTypes = {

@@ -35,7 +35,7 @@ export default class SingleTextPost extends Component {
         let deleteBtn = ownId === userId ? <Popup trigger={<Button onClick={this.delete} color='red' icon='trash' />} content='Delete' inverted /> : '';
 
         return (
-            <div>
+            <div className='h-marginT--md'>
                 <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</Link>
                 <Grid stackable>
                     <Segment className='SinglePost'>

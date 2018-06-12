@@ -49,7 +49,7 @@ export default class SingleVideoPost extends Component {
             youTubeVideoUrl = videoUrl.slice(videoUrl.indexOf('=') + 1, videoUrl.indexOf('&'))
         }
         return (
-            <div>
+            <div className='h-marginT--md'>
                 <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</Link>
                 <Grid stackable>
                     <Segment className='SinglePost'>
