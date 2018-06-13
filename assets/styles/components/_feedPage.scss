@@ -1,11 +1,36 @@
 .FeedPage {
-    background-color: rgba($primary, 0.60);
+    background-color: rgba($secondary, 0.60);
+
+    @media screen and (min-width: 769px) {
+        
+        margin-top: 80px !important;
+    }
 }
 
 .FeedSegment {
-    width: 70%;
-    margin: 0 auto !important;
+   
     margin-bottom: 15px !important; 
+}
+
+.FeedPage__content {
+    
+    margin: 0 auto !important;
+
+    @media screen and (min-width: 1050px) {
+        
+        margin-top: -80px !important;
+    }
+}
+
+.FilterPosts {
+    @media screen and (min-width: 769px) {
+        
+        position: fixed !important;
+    }
+}
+
+.FilterPosts__row {
+    height: 100px;
 }
 
 .extra {

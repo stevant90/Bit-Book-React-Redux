@@ -1,5 +1,16 @@
 @import '../base/variables';
 
+.AppHeader {
+    @media screen and (min-width: 769px) {
+        
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        height: $headerHeight;
+        z-index: 2;
+    }
+}
+
 .logout_btn {
     padding-left: 0 !important;
 }

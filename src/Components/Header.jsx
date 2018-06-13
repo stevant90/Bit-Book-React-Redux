@@ -53,7 +53,7 @@ class _AppHeader extends Component {
             <Segment inverted className='AppHeader h-noMargin'>
                 <Menu inverted pointing secondary stackable>
                     <Menu.Header
-                        className='h-marginR--md'
+                        className='h-marginR--md h-marginT--xs'
                         content={menuHeader}
                     />
                     <Link

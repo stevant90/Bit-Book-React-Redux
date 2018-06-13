@@ -16,7 +16,7 @@ export default class FilterPosts extends Component {
 
     render() {
         return (
-            <Form>
+            <Form className='FilterPosts'>
                 <Form.Group widths={1}>
                     <Form.Field label='Filter posts' control='select' onChange={this.handleSelect}>
                         <option value=''>All posts</option>

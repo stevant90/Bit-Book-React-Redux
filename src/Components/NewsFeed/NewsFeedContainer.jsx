@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Loader, Grid } from 'semantic-ui-react';
+import { Loader, Grid, GridColumn } from 'semantic-ui-react';
 
 import { fetchPosts } from '../../Redux/actions/newsFeed/posts';
 import TextPostsComponent from './TextPostsComponent';
@@ -43,8 +43,8 @@ class NewsFeedContainer extends Component {
         if (posts) {
 
             posts.map(post => {
-                    
-                date = post.dateCreated;  
+
+                date = post.dateCreated;
             });
         }
 
@@ -54,83 +54,85 @@ class NewsFeedContainer extends Component {
 
         return (
             <Grid className='FeedPage'>
-                <Grid.Row>
-                    <FilterPosts filter={this.filterPosts} />
-                </Grid.Row>
-                <Grid.Row>
+                <Grid.Row className='h-marginT--xs h-marginL--sm FilterPosts__row'>
+                    <Grid.Column>
+                        <FilterPosts filter={this.filterPosts} />
+                    </Grid.Column>
 
-                    {posts.map(post => {
+                    <Grid.Column mobile={14} tablet={14} computer={10} className='FeedPage__content'>
+                        {posts.map(post => {
 
-                        if (type !== '') {
-                            if (type === 'text' && post.type === 'text') {
-                                return (
-                                    <TextPostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        key={post.id}
-                                    />
-                                );
-                            } else if (type === 'image' && post.type === 'image') {
-                                return (
-                                    <ImagePostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        key={post.id}
-                                    />
-                                );
-                            } else if (type === 'video' && post.type === 'video') {
-                                return (
-                                    <VideoPostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}                                        
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        key={post.id}
-                                        videoUrl={post.videoUrl}
-                                    />
-                                );
+                            if (type !== '') {
+                                if (type === 'text' && post.type === 'text') {
+                                    return (
+                                        <TextPostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            key={post.id}
+                                        />
+                                    );
+                                } else if (type === 'image' && post.type === 'image') {
+                                    return (
+                                        <ImagePostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            key={post.id}
+                                        />
+                                    );
+                                } else if (type === 'video' && post.type === 'video') {
+                                    return (
+                                        <VideoPostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            key={post.id}
+                                            videoUrl={post.videoUrl}
+                                        />
+                                    );
+                                }
+
+                            } else {
+                                if (post.type === 'text') {
+                                    return (
+                                        <TextPostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            key={post.id}
+                                        />
+                                    );
+                                } else if (post.type === 'image') {
+                                    return (
+                                        <ImagePostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            key={post.id}
+                                        />
+                                    );
+                                } else if (post.type === 'video') {
+                                    return (
+                                        <VideoPostsComponent
+                                            post={post}
+                                            comments={post.commentsNum}
+                                            displayPostDate={displayPostDate}
+                                            postTime={postTime}
+                                            videoUrl={post.videoUrl}
+                                            key={post.id}
+                                        />
+                                    );
+                                }
                             }
 
-                        } else {
-                            if (post.type === 'text') {
-                                return (
-                                    <TextPostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}                                   
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        key={post.id}
-                                    />
-                                );
-                            } else if (post.type === 'image') {
-                                return (
-                                    <ImagePostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}                                        
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        key={post.id}
-                                    />
-                                );
-                            } else if (post.type === 'video') {
-                                return (
-                                    <VideoPostsComponent
-                                        post={post}
-                                        comments={post.commentsNum}                                       
-                                        displayPostDate={displayPostDate}
-                                        postTime={postTime}
-                                        videoUrl={post.videoUrl}
-                                        key={post.id}
-                                    />
-                                );
-                            }
-                        }
-
-                    })}
+                        })}
+                    </Grid.Column>
                 </Grid.Row>
             </Grid>
         );
