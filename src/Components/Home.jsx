@@ -12,7 +12,7 @@ export default class Home extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className='HomePage'>
                 <Switch>
                     <Route exact path='/' component={NewsFeedContainer} />
                     <Route path='/feed/:type/:postId' component={SinglePostContainer} />

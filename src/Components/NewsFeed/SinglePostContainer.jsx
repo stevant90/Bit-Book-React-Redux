@@ -46,7 +46,6 @@ class _SinglePostContainer extends Component {
     delete = (id) => {
 
         this.props.deletePost(id, this.refreshPage);
-
     }
 
     render() {
@@ -63,7 +62,7 @@ class _SinglePostContainer extends Component {
 
         if (singlePost.type === 'text') {
             return (
-                <div>
+                <div className='SinglePost'>
                     <SingleTextPost
                         post={singlePost}
                         deletePost={this.delete}
@@ -77,12 +76,12 @@ class _SinglePostContainer extends Component {
 
         if (singlePost.type === 'image') {
             return (
-                <div>
+                <div className='SinglePost'>
                     <SingleImagePost
                         post={singlePost}
                         deletePost={this.delete}
                         deleteErrorMessage={deleteErrorMessage}
-                        ownId={ownId}
+                        ownId={ownId}                      
                     />
                     <CommentsContainer postId={postId} />
                 </div>
@@ -90,12 +89,12 @@ class _SinglePostContainer extends Component {
         }
 
         return (
-            <div>
+            <div className='SinglePost'>
                 <SingleVideoPost
                     post={singlePost}
                     deletePost={this.delete}
                     deleteErrorMessage={deleteErrorMessage}
-                    ownId={ownId}
+                    ownId={ownId}                    
                 />
                 <CommentsContainer postId={postId} />
             </div>

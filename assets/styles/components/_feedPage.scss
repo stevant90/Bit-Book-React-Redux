@@ -7,33 +7,38 @@
     }
 }
 
-.FeedSegment {
+.FeedPage__segment {
    
     margin-bottom: 15px !important; 
+
+    .extra {
+
+        word-break: break-all;
+    }
 }
 
 .FeedPage__content {
     
     margin: 0 auto !important;
 
-    @media screen and (min-width: 1050px) {
+    @media screen and (min-width: 769px) {
         
         margin-top: -80px !important;
     }
 }
 
-.FilterPosts {
-    @media screen and (min-width: 769px) {
-        
-        position: fixed !important;
-    }
+.Filter select {
+    background-color: $alternate !important;
+    color: $light !important;
 }
 
-.FilterPosts__row {
-    height: 100px;
+.Filter option {
+
+    padding: 5px !important;
 }
 
 .extra {
+
     width: 100%;
 
     @media screen and (min-width: 992px) {
@@ -47,10 +52,12 @@ img {
 }
 
 .date {
+
     color: $grey !important;
 }
 
 .SinglePostLink {
+
     display: block;
     margin-top: 10px;
 }

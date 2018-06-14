@@ -1,12 +1,30 @@
 @import '../base/variables';
 
-.UsersList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;   
+.UsersPage {
+
+    margin-top: 100px !important;   
 }
 
-img {
-    width: 100%;
-    height: 60%;
+.UsersPage__inner {
+
+    margin-top: 80px !important;
 }
+
+.UsersPage__item, .SearchBar {
+    
+    width: 100% !important;   
+
+    @media screen and (min-width: 769px) {
+        width: 70% !important;
+        margin: 0 auto !important;
+    }
+}
+
+
+.UsersPage__item {
+
+    img {
+        width: 100% !important;
+    }
+}
+

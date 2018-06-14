@@ -23,7 +23,7 @@ class UsersContainer extends Component {
         errorMessage: PropTypes.string
 
     }
-    
+
     componentWillReceiveProps() {
         this.setState({ users: this.props.users });
     }
@@ -51,8 +51,10 @@ class UsersContainer extends Component {
         }
 
         return (
-            <div>
-                <SearchBar onSearch={this.onSearchRequest} />
+            <div className='UsersPage'>
+                <div className='Search'>
+                    <SearchBar onSearch={this.onSearchRequest} />
+                </div>
                 {users.map(user => {
                     return <UsersList user={user} key={user.id} errorMessage={errorMessage} />
                 })}

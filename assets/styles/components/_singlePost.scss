@@ -1,13 +1,32 @@
-// .SinglePostPage {
-//     background-color: rgba($secondary, 0.94) !important;
-  
-// }
-
 .SinglePost {
+
+    position: relative;
+    top: 20px;
+
+    @media screen and (min-width: 769px) {
+        top: 90px
+    }
+}
+
+.SinglePost__segment {
+
     width: 70%;
     margin: 0 auto !important;
+    
+    @media screen and (max-width: 769px) {
+        
+        width: 100%;
+        margin-top: 30px !important;
+    }
 
     .extra {
         width: 100%;
+        word-break: break-all
+    }
+
+    img {
+        @media screen and (min-width: 992px) {
+            width: 50% !important;
+        }
     }
 }

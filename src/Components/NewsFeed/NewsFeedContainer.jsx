@@ -30,6 +30,7 @@ class NewsFeedContainer extends Component {
         this.setState({ type: searchTerm });
     }
 
+
     render() {
 
         const { posts } = this.props;
@@ -54,12 +55,14 @@ class NewsFeedContainer extends Component {
 
         return (
             <Grid className='FeedPage'>
-                <Grid.Row className='h-marginT--xs h-marginL--sm FilterPosts__row'>
+                <Grid.Row className='FeedPage__filter'>
                     <Grid.Column>
-                        <FilterPosts filter={this.filterPosts} />
+                        <FilterPosts filter={this.filterPosts}/>
                     </Grid.Column>
+                </Grid.Row>
 
-                    <Grid.Column mobile={14} tablet={14} computer={10} className='FeedPage__content'>
+                <Grid.Row>
+                    <Grid.Column mobile={14} tablet={10} computer={10} className='FeedPage__content'>
                         {posts.map(post => {
 
                             if (type !== '') {

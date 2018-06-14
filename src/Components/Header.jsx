@@ -77,7 +77,7 @@ class _AppHeader extends Component {
                     >
                         Profile
                     </Link>
-                    <Menu.Item>
+                    <Menu.Item className='NewPost__option'>
                         {this.showNewPostContainer(NewPostContainer)}
                     </Menu.Item>
                     <Menu.Menu position='right'>

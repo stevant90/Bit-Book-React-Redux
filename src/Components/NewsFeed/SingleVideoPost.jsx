@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Iframe from 'react-iframe';
-import { Grid, Feed, Icon, Segment, Button, Popup, Message} from 'semantic-ui-react';
+import { Grid, Feed, Icon, Segment, Button, Popup, Message } from 'semantic-ui-react';
 
 export default class SingleVideoPost extends Component {
 
@@ -50,22 +50,22 @@ export default class SingleVideoPost extends Component {
         }
         return (
             <div className='h-marginT--md'>
-                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</Link>
+                <Link to='/' className='h-paddingALL--sm'><Icon name='arrow circle left' size='large' />Go back</Link>
                 <Grid stackable>
-                    <Segment className='SinglePost'>
+                    <Segment className='SinglePost__segment'>
                         <Grid.Row>
                             <Feed>
-                                {deleteBtn}
                                 <Feed.Event>
                                     <Feed.Content>
                                         {!!deleteErrorMessage
                                             && <Message
-                                                error
-                                                content={deleteErrorMessage}
+                                            error
+                                            content={deleteErrorMessage}
                                             />}
                                         <Feed.Summary>
                                             <Link to={`/people/${userId}`}>{userDisplayName}</Link>
                                             <Feed.Date> at: {displayPostDate} in: {postTime}</Feed.Date>
+                                            <span style={{float: 'right'}} className='h-marginB--sm'>{deleteBtn}</span>
                                         </Feed.Summary>
                                         <Feed.Extra>
                                             <Iframe

@@ -42,7 +42,7 @@ export default class ImagePostComponent extends Component {
 
         return (
 
-            <Segment className='FeedSegment'>
+            <Segment className='FeedPage__segment'>
                 <Feed>
                     <Feed.Event>
                         <Feed.Content>

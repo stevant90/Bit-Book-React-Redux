@@ -36,11 +36,10 @@ export default class SingleTextPost extends Component {
 
         return (
             <div className='h-marginT--md'>
-                <Link to='/' className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</Link>
+                <Link to='/' className='h-paddingALL--sm'><Icon name='arrow circle left' size='large' />Go back</Link>
                 <Grid stackable>
-                    <Segment className='SinglePost'>
+                    <Segment className='SinglePost__segment'>
                         <Grid.Row>
-                            {deleteBtn}
                             <Feed>
                                 <Feed.Event>
                                     <Feed.Content>
@@ -52,8 +51,9 @@ export default class SingleTextPost extends Component {
                                         <Feed.Summary>
                                             <Link to={`/people/${userId}`}>{userDisplayName}</Link>
                                             <Feed.Date> at: {displayPostDate} in: {postTime}</Feed.Date>
+                                            <span style={{float: 'right'}} className='h-marginB--sm'>{deleteBtn}</span>                                            
                                         </Feed.Summary>
-                                        <Feed.Extra text className='h-textRight'>
+                                        <Feed.Extra text>
                                             {text}
                                         </Feed.Extra>
                                         <Feed.Meta>
