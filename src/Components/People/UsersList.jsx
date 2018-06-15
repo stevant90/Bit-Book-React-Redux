@@ -24,28 +24,25 @@ export default class UsersList extends Component {
 
         return (
 
-            <div className='UsersPage__inner'>
-                <Item.Group unstackable divided className='UsersPage__item'>
-                    {!!errorMessage
-                        && <Message
-                            error
-                            header='Whoops!'
-                            content={errorMessage}
-                        />}
-                    <Item>
-                        <Item.Image size='small' src={user.avatarUrl ? user.avatarUrl : avatarBackup} />
-                        <Item.Content>
-                            <Item.Header>{linkToSingleUser}</Item.Header>
-                            <Item.Description>
-                                <p>{user.aboutShort}</p>
-                            </Item.Description>
-                        </Item.Content>
-                    </Item>
-                    <Label color='teal'>Last post at: {postDate}</Label>
-                    <Divider />
-                </Item.Group>
-            </div>
-
+            <Item.Group unstackable divided className='UsersPage__item h-marginL--md'>
+                {!!errorMessage
+                    && <Message
+                        error
+                        header='Whoops!'
+                        content={errorMessage}
+                    />}
+                <Item>
+                    <Item.Image size='small' src={user.avatarUrl ? user.avatarUrl : avatarBackup} />
+                    <Item.Content>
+                        <Item.Header>{linkToSingleUser}</Item.Header>
+                        <Item.Description>
+                            <p>{user.aboutShort}</p>
+                        </Item.Description>
+                    </Item.Content>
+                </Item>
+                <Label className='UsersPage__date'>Last post at: {postDate}</Label>
+                <Divider />
+            </Item.Group>
         );
     }
 }

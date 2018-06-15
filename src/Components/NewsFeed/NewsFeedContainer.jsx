@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Loader, Grid, GridColumn } from 'semantic-ui-react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Loader, Grid, Icon, Popup } from 'semantic-ui-react';
 
 import { fetchPosts } from '../../Redux/actions/newsFeed/posts';
 import TextPostsComponent from './TextPostsComponent';
@@ -13,7 +14,10 @@ class NewsFeedContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { type: '' };
+        this.state = {
+            type: '',
+            display: 'none'
+        };
     }
 
     static propTypes = {
@@ -28,6 +32,19 @@ class NewsFeedContainer extends Component {
     filterPosts = (searchTerm) => {
 
         this.setState({ type: searchTerm });
+    }
+
+    backToTop = () => {
+
+        this.setState({ display: 'none' });
+
+        if (window.scrollY > 1000) {
+            this.setState({ display: 'block' });
+        }
+    }
+
+    topOfThePage = () => {
+        window.scroll(0, 0);
     }
 
 
@@ -49,6 +66,14 @@ class NewsFeedContainer extends Component {
             });
         }
 
+        const backToTopBtn = <Popup
+            inverted
+            content='Back to top'
+            trigger={<Icon onClick={this.topOfThePage} name='arrow circle up' size='huge' color='teal' className='backToTopBtn' style={{ display: this.state.display }} />}
+            hideOnScroll
+        >
+        </Popup>;
+
         const postDate = new Date(date);
         const displayPostDate = postDate.toDateString();
         const postTime = postDate.toLocaleTimeString();
@@ -57,7 +82,7 @@ class NewsFeedContainer extends Component {
             <Grid className='FeedPage'>
                 <Grid.Row className='FeedPage__filter'>
                     <Grid.Column>
-                        <FilterPosts filter={this.filterPosts}/>
+                        <FilterPosts filter={this.filterPosts} />
                     </Grid.Column>
                 </Grid.Row>
 
@@ -137,6 +162,10 @@ class NewsFeedContainer extends Component {
                         })}
                     </Grid.Column>
                 </Grid.Row>
+                {backToTopBtn}
+                <InfiniteScroll
+                    onScroll={this.backToTop}
+                />
             </Grid>
         );
     }
