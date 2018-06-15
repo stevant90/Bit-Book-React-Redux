@@ -1,13 +1,11 @@
-@import "variables";
-
 #root {
     height: 100%;
     width: 100%;
 }
 
-// main {
-//     min-height: calc(100% - #{$headerHeight} - #{$footerHeight});
-// }
+main {
+    min-height: calc(100% - #{$headerHeight} - #{$footerHeight});
+}
 
 .SessionStorageError__photo {
     max-width: 100%;

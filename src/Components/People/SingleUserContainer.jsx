@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Grid } from 'semantic-ui-react';
 
 import { fetchSingleUser } from '../../Redux/actions/people/singleUser';
 import { fetchProfile } from '../../Redux/actions/profile/profile';
@@ -40,10 +41,14 @@ class SingleUserContainer extends Component {
         const { user, errorMessage, profile } = this.props;
 
         return (
-            <div>
+            <Grid>
                 {<SingleUser user={user} errorMessage={errorMessage} />}
-                {this.renderUpdateProfile(UpdateProfileContainer)}
-            </div>
+                <Grid.Row>
+                    <Grid.Column className='SingleUser__updateProfile'>
+                        {this.renderUpdateProfile(UpdateProfileContainer)}
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         );
     }
 }

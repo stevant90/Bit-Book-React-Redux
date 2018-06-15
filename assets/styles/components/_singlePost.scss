@@ -1,32 +1,35 @@
-.SinglePost {
+.SinglePostPage {
 
     position: relative;
     top: 20px;
 
     @media screen and (min-width: 769px) {
-        top: 90px
+        top: 110px
     }
 }
 
-.SinglePost__segment {
+.SinglePostPage__segment {
 
-    width: 70%;
+    width: 90%;
     margin: 0 auto !important;
+    margin-top: 30px !important;
     
-    @media screen and (max-width: 769px) {
+    @media screen and (min-width: 769px) {
         
-        width: 100%;
-        margin-top: 30px !important;
+        width: 70%;
     }
 
     .extra {
-        width: 100%;
-        word-break: break-all
+        
+        width: 100% !important;
+        word-break: break-all;
+        margin-top: 40px !important;
     }
 
     img {
+
         @media screen and (min-width: 992px) {
             width: 50% !important;
         }
-    }
+    }   
 }

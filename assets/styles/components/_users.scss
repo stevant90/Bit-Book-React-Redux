@@ -13,10 +13,20 @@
 .UsersPage__item {
     
     width: 100% !important;   
-
+    margin-left: 20px !important;
+    
     @media screen and (min-width: 769px) {
         width: 70% !important;
         margin: 0 auto !important;
+    }
+  
+    img {
+        width: 100% !important;
+    }
+
+    .content {
+
+        margin-left: 20px !important;
     }
 }
 
@@ -30,25 +40,13 @@
     }
 }
 
-.UsersPage__item {
-
-    img {
-        width: 100% !important;
-    }
-
-    .content {
-
-        margin-left: 20px !important;
-    }
-
-}
-
 .UsersPage__date {
 
     background-color: $alternate !important;
 }
 
 .backToTopBtn {
+
     position: fixed;
     bottom: 20px;
     right: 10px;

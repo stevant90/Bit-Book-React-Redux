@@ -189,7 +189,7 @@ export default class UpdateForm extends Component {
                     onChange={this.handleFileChange}
                 />
 
-                <Image size='small' src={this.state.imagePreview} />
+                <Image size='small' src={this.state.imagePreview} className='h-paddingALL--sm' />
 
 
                 <Button color='red' onClick={this.closeModal}>

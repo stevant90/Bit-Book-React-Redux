@@ -1,8 +1,8 @@
-@import '../base/variables';
-
 .AppHeader {
+
     @media screen and (min-width: 769px) {
         
+        height: $headerHeight;
         position: fixed !important;
         top: 0;
         width: 100%;

@@ -24,7 +24,7 @@ export default class UsersList extends Component {
 
         return (
 
-            <Item.Group unstackable divided className='UsersPage__item h-marginL--md'>
+            <Item.Group unstackable divided className='UsersPage__item'>
                 {!!errorMessage
                     && <Message
                         error

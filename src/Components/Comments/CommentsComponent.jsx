@@ -20,29 +20,27 @@ export default class CommentsComponent extends Component {
         const displayTime = date.toLocaleTimeString();
 
         return (
-            <Grid stackable className='h-marginT--xxl'>
-                <Item.Group>
-                    <Item>
-                        <Item.Content>
-                            <Grid.Row>
-                                <Comment.Group>
-                                    <Comment>
-                                        <Comment.Content>
-                                            <Comment.Author><Link to={`/people/${authorId}`}>{authorName}</Link></Comment.Author>
-                                            <Comment.Metadata>
-                                                <div>On {displayDate}, {displayTime}</div>
-                                            </Comment.Metadata>
-                                            <Comment.Text>
-                                                {body}
-                                            </Comment.Text>
-                                        </Comment.Content>
-                                    </Comment>
-                                </Comment.Group>
-                            </Grid.Row>
-                        </Item.Content>
-                    </Item>
-                </Item.Group>
-            </Grid>
+            <Item.Group className='h-marginT--xxl'>
+                <Item>
+                    <Item.Content>
+                        <Grid.Row>
+                            <Comment.Group>
+                                <Comment>
+                                    <Comment.Content>
+                                        <Comment.Author><Link to={`/people/${authorId}`}>{authorName}</Link></Comment.Author>
+                                        <Comment.Metadata>
+                                            <div>On {displayDate}, {displayTime}</div>
+                                        </Comment.Metadata>
+                                        <Comment.Text>
+                                            {body}
+                                        </Comment.Text>
+                                    </Comment.Content>
+                                </Comment>
+                            </Comment.Group>
+                        </Grid.Row>
+                    </Item.Content>
+                </Item>
+            </Item.Group>
         );
     }
 }

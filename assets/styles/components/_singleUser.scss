@@ -1,17 +1,52 @@
 .SingleUser {
-    width: 80%;
-    margin: 0 auto;
-    
-    @media screen and (min-width: 768px) {
-        width: 50%
-    }
-    
-    @media screen and (min-width: 1400px) {
-        width: 35%
+
+    margin-top: 60px;
+
+    @media screen and (min-width: 769px) {
+        
+        margin-top: 110px;
     }
 }
 
+.SingleUser__card {
+    
+    width: 80% !important;
+    margin: 0 auto;
+
+    @media screen and (min-width: 768px) {
+
+        width: 50% !important;
+    }
+
+    @media screen and (min-width: 1400px) {
+
+         width: 35% !important;
+    }
+
+    .description {
+
+        word-break: break-all;
+    }
+}
+
+.SingleUser__updateProfile {
+
+width: 30%;
+margin: 0 auto;
+}
+
+
+
 a {
-    cursor: pointer;
-   
+    cursor: pointer; 
+}
+
+.margin-top {
+
+    margin-top: 20px !important;
+
+    @media screen and (min-width: 769px) {
+        
+        margin-top: -15px !important;
+    }
 }
