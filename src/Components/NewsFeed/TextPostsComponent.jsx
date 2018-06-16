@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Grid, Segment, Feed, Icon } from 'semantic-ui-react';
+import { Segment, Feed, Icon } from 'semantic-ui-react';
 
 export default class TextPostComponent extends Component {
 
@@ -43,7 +43,6 @@ export default class TextPostComponent extends Component {
                     </Feed.Event>
                 </Feed>
             </Segment>
-
         );
     }
 }

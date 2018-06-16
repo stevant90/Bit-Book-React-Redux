@@ -5,7 +5,6 @@ import { withRouter, Redirect } from 'react-router';
 import { Message } from 'semantic-ui-react';
 
 import AppHeader from './Header';
-import AppFooter from './Footer';
 
 const Aux = props => props.children;
 
@@ -54,7 +53,6 @@ class _AppContainer extends Component {
                 {requiresLogin
                     ? <main>{this.withLoginRedirect(Component)}</main>
                     : <Component />}
-                {hasHeaderAndFooter && this.withLoginRedirect(AppFooter)}
             </Aux>
         ) : (
                 <main className='sessionStorageError h-textCenter'>

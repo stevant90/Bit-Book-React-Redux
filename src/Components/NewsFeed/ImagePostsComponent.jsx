@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Grid, Segment, Feed, Icon, Image } from 'semantic-ui-react';
+import { Segment, Feed, Icon, Image } from 'semantic-ui-react';
 
 export default class ImagePostComponent extends Component {
 
@@ -17,7 +17,7 @@ export default class ImagePostComponent extends Component {
         const { post, displayPostDate, postTime, comments } = this.props;
         const { userId, userDisplayName, commentsNum, imageUrl, id } = post;
 
-        const displayComments = comments > 1 ? 'Comments' : 'Comment'        
+        const displayComments = comments > 1 ? 'Comments' : 'Comment'
 
         return (
 
@@ -45,5 +45,4 @@ export default class ImagePostComponent extends Component {
             </Segment>
         );
     }
-
 }   

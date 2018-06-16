@@ -1,15 +1,7 @@
-// .HomePage {
-
-//     background-color: rgba($secondary, 0.60);
-//     height: 100%;
-// }
-
 .FeedPage {
 
-    @media screen and (min-width: 769px) {
-        
-        margin-top: 80px !important;
-    }
+   width: 100%;
+   background-color: rgba($secondary, 0.60);
 }
 
 .FeedPage__segment {
@@ -24,22 +16,32 @@
 
 .FeedPage__content {
     
-    margin: 0 auto !important;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 70px;
+    
+    @media screen and (min-width: 769px) {
+        
+        width: 65%;
+       padding-top: 30px;
+    }
+}
+
+.FeedPage__filter {
+
+    padding-top: 10px;
 
     @media screen and (min-width: 769px) {
         
-        margin-top: -80px !important;
+        padding-top: 0;
+        position: fixed !important;
+        height: 100%;
     }
 }
 
 .Filter select {
     background-color: $alternate !important;
     color: $light !important;
-}
-
-.Filter option {
-
-    padding: 5px !important;
 }
 
 .extra {

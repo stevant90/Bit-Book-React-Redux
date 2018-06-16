@@ -18,15 +18,15 @@ export default class Profile extends Component {
         const avatarBackup = 'http://via.placeholder.com/350x300';
 
         return (
-            <Grid>
-                <Grid.Row className='SingleUser'>
+            <Grid className='ProfilePage'>
+                <Grid.Row className='ProfilePage__inner'>
                     {!!errorMessage
                         && <Message
                             error
                             header='Whoops!'
                             content={errorMessage}
                         />}
-                    <Card centered={true} fluid={true} className='SingleUser__card'>
+                    <Card centered={true} fluid={true} className='ProfilePage__card'>
                         <Image src={profile.avatarUrl ? profile.avatarUrl : avatarBackup} />
                         <Card.Content>
                             <Card.Header>
@@ -62,7 +62,7 @@ export default class Profile extends Component {
                     </Card>
                 </Grid.Row>
                 <Grid.Row>
-                    <Grid.Column className='SingleUser__updateProfile'>
+                    <Grid.Column className='ProfilePage__updateProfile'>
                         <UpdateProfileContainer />
                     </Grid.Column>
                 </Grid.Row>
