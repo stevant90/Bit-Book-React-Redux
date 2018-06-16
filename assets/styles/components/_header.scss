@@ -1,7 +1,13 @@
-@import '../base/variables';
-
 .AppHeader {
-    height: $headerHeight;
+
+    @media screen and (min-width: 769px) {
+        
+        height: $headerHeight;
+        position: fixed !important;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+    }
 }
 
 .logout_btn {

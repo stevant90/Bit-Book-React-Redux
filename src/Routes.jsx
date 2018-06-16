@@ -24,6 +24,7 @@ export default class Routes extends Component {
 								hasHeaderAndFooter={false}
 							/>
 						</Route>
+						
 						<Route path='/register'>
 							<AppContainer
 								Component={Register}

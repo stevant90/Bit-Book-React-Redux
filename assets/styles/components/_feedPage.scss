@@ -1,14 +1,51 @@
 .FeedPage {
-    background-color: rgba($primary, 0.60);
+
+   width: 100%;
+   background-color: rgba($secondary, 0.60);
 }
 
-.FeedSegment {
-    width: 70%;
-    margin: 0 auto !important;
-    margin-top: 15px !important; 
+.FeedPage__segment {
+   
+    margin-bottom: 15px !important; 
+
+    .extra {
+
+        word-break: break-all;
+    }
+}
+
+.FeedPage__content {
+    
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 70px;
+    
+    @media screen and (min-width: 769px) {
+        
+        width: 65%;
+       padding-top: 30px;
+    }
+}
+
+.FeedPage__filter {
+
+    padding-top: 10px;
+
+    @media screen and (min-width: 769px) {
+        
+        padding-top: 0;
+        position: fixed !important;
+        height: 100%;
+    }
+}
+
+.Filter select {
+    background-color: $alternate !important;
+    color: $light !important;
 }
 
 .extra {
+
     width: 100%;
 
     @media screen and (min-width: 992px) {
@@ -22,10 +59,12 @@ img {
 }
 
 .date {
+
     color: $grey !important;
 }
 
 .SinglePostLink {
+
     display: block;
     margin-top: 10px;
 }

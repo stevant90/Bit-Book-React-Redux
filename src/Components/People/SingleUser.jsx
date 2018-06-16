@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Image, Icon, Header, Card, Label, Message, Button, Grid } from 'semantic-ui-react';
+import { Image, Icon, Header, Card, Label, Message, Button, Grid, GridRow } from 'semantic-ui-react';
 
 export default class SingleUser extends Component {
 
@@ -21,17 +21,18 @@ export default class SingleUser extends Component {
         const avatarBackup = 'http://via.placeholder.com/350x150';
 
         return (
-            <Grid>
-                <a onClick={this.goBack} className='h-paddingALL--sm'><Icon name='angle double left' size='large' />Go back</a>
-                <div className='SingleUser'>
-
+            <div className='SingleUser'>
+                <Grid.Row>
+                    <a onClick={this.goBack} className='h-paddingALL--sm'><Icon name='arrow circle left' size='large' />Go back</a>
+                </Grid.Row>
+                <Grid.Row>
                     {!!errorMessage
                         && <Message
                             error
                             header='Whoops!'
                             content={errorMessage}
                         />}
-                    <Card centered={true} fluid={true} className='h-marginT--md'>
+                    <Card centered={true} fluid={true} className='SingleUser__card margin-top'>
                         <Image src={user.avatarUrl ? user.avatarUrl : avatarBackup} />
                         <Card.Content>
                             <Card.Header>
@@ -60,8 +61,8 @@ export default class SingleUser extends Component {
                             </Label>
                         </Card.Content>
                     </Card>
-                </div>
-            </Grid>
+                </Grid.Row>
+            </div>
         );
     }
 } 

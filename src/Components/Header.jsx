@@ -34,17 +34,26 @@ class _AppHeader extends Component {
     handleItemClick = activeItem => {
 
         this.setState({ activeItem });
-    };
+    }
+
+    showNewPostContainer = (Component) => {
+        if (this.props.location.pathname === '/') {
+            return <Component />
+        }
+
+        return;
+    }
+
 
     render() {
 
         const menuHeader = <h2>Bit Book &nbsp;<Icon name='book' size='large' /></h2>
 
         return (
-            <Segment inverted >
+            <Segment inverted className='AppHeader h-noMargin'>
                 <Menu inverted pointing secondary stackable>
                     <Menu.Header
-                        className='h-marginR--md'
+                        className='h-marginR--md h-marginT--xs'
                         content={menuHeader}
                     />
                     <Link
@@ -68,8 +77,8 @@ class _AppHeader extends Component {
                     >
                         Profile
                     </Link>
-                    <Menu.Item>
-                        <NewPostContainer />
+                    <Menu.Item className='NewPost__option'>
+                        {this.showNewPostContainer(NewPostContainer)}
                     </Menu.Item>
                     <Menu.Menu position='right'>
                         <Menu.Item className='logout_btn'>

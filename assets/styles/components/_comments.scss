@@ -1,4 +1,13 @@
 .Comments {
-    width: 70%;
+    width: 85%;
     margin: 0 auto !important;
+
+    @media screen and (min-width: 769px) {
+        width: 68%;
+    }
+
+    .text {
+
+        word-break: break-all;
+    }
 }

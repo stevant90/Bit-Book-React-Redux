@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Grid, Icon, Popup } from 'semantic-ui-react';
 
 import { fetchUsers } from '../../Redux/actions/people/usersList';
 import UsersList from './UsersList';
@@ -12,7 +14,10 @@ class UsersContainer extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { users: this.props.users };
+        this.state = {
+            users: [],
+            display: 'none'
+        };
     }
 
     static propTypes = {
@@ -23,7 +28,7 @@ class UsersContainer extends Component {
         errorMessage: PropTypes.string
 
     }
-    
+
     componentWillReceiveProps() {
         this.setState({ users: this.props.users });
     }
@@ -42,6 +47,23 @@ class UsersContainer extends Component {
         });
     }
 
+    backToTop = () => {
+
+        this.setState({ display: 'none' });
+
+        if (window.scrollY > 1000) {
+            this.setState({ display: 'block' });
+        }
+    }
+
+    topOfThePage = () => {
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    }
+
     render() {
         const { users } = this.state;
         const { errorMessage } = this.props;
@@ -50,13 +72,30 @@ class UsersContainer extends Component {
             return <Loader content='Loading' />
         }
 
+        const backToTopBtn = <Popup
+            inverted
+            content='Back to top'
+            trigger={<Icon onClick={this.topOfThePage} name='arrow circle up' size='huge' color='teal' className='backToTopBtn' style={{ display: this.state.display }} />}
+            hideOnScroll
+        >
+        </Popup>;
+
+
         return (
-            <div>
-                <SearchBar onSearch={this.onSearchRequest} />
-                {users.map(user => {
-                    return <UsersList user={user} key={user.id} errorMessage={errorMessage} />
-                })}
-            </div>
+            <Grid className='UsersPage'>
+                <Grid.Row className='Search'>
+                    <SearchBar onSearch={this.onSearchRequest} />
+                </Grid.Row>
+                <Grid.Row>
+                    {users.map(user => {
+                        return <UsersList user={user} key={user.id} errorMessage={errorMessage} />
+                    })}
+                </Grid.Row>
+                {backToTopBtn}
+                <InfiniteScroll
+                    onScroll={this.backToTop}
+                />
+            </Grid>
         );
     }
 }

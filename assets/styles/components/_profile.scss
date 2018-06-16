@@ -1,8 +1,14 @@
-.SingleUser {
+.ProfilePage {
 
     width: 100%;
+    margin: 0 !important;
+    padding-bottom: 50px !important;
+    background-color: rgba($secondary, 0.60);
+}
+
+.ProfilePage__inner {
+
     margin-top: 60px;
-    margin-bottom: 50px;
 
     @media screen and (min-width: 769px) {
         
@@ -10,7 +16,7 @@
     }
 }
 
-.SingleUser__card {
+.ProfilePage__card {
     
     width: 80% !important;
     margin: 0 auto;
@@ -37,16 +43,3 @@
     margin: 0 auto;
 }
 
-a {
-    cursor: pointer; 
-}
-
-.margin-top {
-
-    margin-top: 20px !important;
-
-    @media screen and (min-width: 769px) {
-        
-        margin-top: -15px !important;
-    }
-}
