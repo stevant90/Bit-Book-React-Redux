@@ -18,7 +18,8 @@ export default class NewPostModal extends Component {
         clearFormStatus: PropTypes.func,
         submitForm: PropTypes.func,
         errorMessage: PropTypes.string,
-        fetchPosts: PropTypes.func
+        fetchPosts: PropTypes.func,
+        uploadImage: PropTypes.func
     };
 
     render() {
@@ -34,7 +35,8 @@ export default class NewPostModal extends Component {
             clearFormStatus,
             submitForm,
             errorMessage,
-            fetchPosts
+            fetchPosts,
+            uploadImage
         } = this.props;
 
         let open;
@@ -67,6 +69,7 @@ export default class NewPostModal extends Component {
                         clearFormStatus={clearFormStatus}
                         errorMessage={errorMessage}
                         reloadPage={fetchPosts}
+                        uploadImage={uploadImage}
                     />
                 </Modal.Content>
             </Modal>

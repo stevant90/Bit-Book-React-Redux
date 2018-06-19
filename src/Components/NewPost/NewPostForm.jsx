@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Icon, Form, Image } from 'semantic-ui-react';
 
 import SimpleForm from '../Shared/Form';
 import SimpleInput from '../Shared/Input';
@@ -13,7 +13,9 @@ export default class NewPostForm extends Component {
         this.state = {
             text: '',
             imageUrl: '',
-            videoUrl: ''
+            videoUrl: '',
+            file: '',
+            imagePreview: ''
         };
     }
 
@@ -25,7 +27,8 @@ export default class NewPostForm extends Component {
         submitForm: PropTypes.func,
         clearFormStatus: PropTypes.func,
         errorMessage: PropTypes.string,
-        reloadPage: PropTypes.func
+        reloadPage: PropTypes.func,
+        uploadImage: PropTypes.func
     };
 
     handleInputChange = (name, value) => {
@@ -33,6 +36,22 @@ export default class NewPostForm extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    handleFileChange = event => {
+
+        let file = event.target.files[0];
+
+        const reader = new FileReader();
+
+        reader.onloadend = () => {
+            this.setState({
+                file,
+                imagePreview: reader.result
+            });
+        }
+
+        reader.readAsDataURL(file);
     }
 
     savePost = () => {
@@ -122,7 +141,8 @@ export default class NewPostForm extends Component {
                     />}
 
                 {type === 'image'
-                    && <SimpleInput
+                    &&
+                    <SimpleInput
                         type='url'
                         placeholder='Enter image url'
                         name='imageUrl'
@@ -138,6 +158,8 @@ export default class NewPostForm extends Component {
                         onChange={this.handleInputChange}
                         validation={validator.avatarUrl}
                     />}
+
+                <Image size='small' src={this.state.imagePreview} className='h-paddingALL--sm' />
 
                 <Button
                     color='red'

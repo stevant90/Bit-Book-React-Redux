@@ -1,11 +1,6 @@
 body {
 
     margin: 0;
-
-    @media screen and (min-width: 769px) {
-        
-        margin-top: 110px;
-    }
 }
 
 #root {
@@ -14,7 +9,8 @@ body {
 }
 
 main {
-    min-height: calc(100% - #{$headerHeight});
+
+    height: 100%;
 }
 
 .SessionStorageError__photo {
@@ -30,7 +26,7 @@ main {
 
     @media screen and (min-width: 769px) {
         
-        margin-top: -30px;
+        padding-top: 80px;
     }
 }
 

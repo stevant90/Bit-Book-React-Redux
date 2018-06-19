@@ -5,6 +5,7 @@ import { Dropdown, Icon, Modal, Button, Form, TextArea, Header } from 'semantic-
 
 import { newPost } from '../../Redux/actions/newsFeed/newPost';
 import { fetchPosts } from '../../Redux/actions/newsFeed/posts';
+import { uploadImage } from '../../Redux/actions/profile/uploadImage';
 import { clearFormStatus } from '../../Redux/actions/clearFormStatus';
 import NewPostModal from './NewPostModal';
 
@@ -26,7 +27,8 @@ class NewPostContainer extends Component {
         clearFormStatus: PropTypes.func,
         errorMessage: PropTypes.string,
         isLoading: PropTypes.bool,
-        fetchPosts: PropTypes.func
+        fetchPosts: PropTypes.func,
+        uploadImage: PropTypes.func
     };
 
 
@@ -42,7 +44,7 @@ class NewPostContainer extends Component {
 
     render() {
 
-        const { newPost, clearFormStatus, errorMessage, isLoading, fetchPosts } = this.props;
+        const { newPost, clearFormStatus, errorMessage, isLoading, fetchPosts, uploadImage } = this.props;
 
         const { dimmer, textModalOpened, imageModalOpened, videoModalOpened, type } = this.state;
 
@@ -67,9 +69,8 @@ class NewPostContainer extends Component {
                     submitForm={newPost}
                     clearFormStatus={clearFormStatus}
                     fetchPosts={fetchPosts}
-
+                    uploadImage={uploadImage}
                 />
-
             </div>
         );
     }
@@ -92,6 +93,9 @@ const mapDispatchToProps = dispatch => {
         },
         clearFormStatus: () => {
             dispatch(clearFormStatus());
+        },
+        uploadImage: (params, callback) => {
+            dispatch(uploadImage(params, callback));
         }
     };
 }
