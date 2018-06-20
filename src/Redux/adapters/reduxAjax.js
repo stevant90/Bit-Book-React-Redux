@@ -4,7 +4,7 @@ import { API_KEY } from '../constants/apiInfo';
 import { actionTypes } from '../constants/actionTypes';
 
 export default function reduxAjax({ requestAction, successAction, errorAction, method = 'GET', params, url, auth = true, axiosArgs = {} }) {
-    const sessionId = sessionStorage.getItem('sessionId');
+    const sessionId = localStorage.getItem('sessionId');
 
     axiosArgs.headers = {};
 

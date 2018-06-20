@@ -2,6 +2,11 @@
     
    background-color: rgba($secondary, 0.60);
 
+   @media screen and (min-width: 769px) {
+
+        margin-top: 80px !important;
+        padding-bottom: 15px !important;
+    }
 }
 
 .UsersPage__item {

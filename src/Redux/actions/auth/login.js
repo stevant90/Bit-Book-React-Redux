@@ -28,7 +28,7 @@ export const login = (redirectCallback, params) => {
             method: 'POST'
         })).then(response => {
         
-            sessionStorage.setItem('sessionId', response.sessionId);
+            localStorage.setItem('sessionId', response.sessionId);
 
             redirectCallback();
         }).catch(error => { });

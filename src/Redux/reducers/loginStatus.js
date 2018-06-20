@@ -3,7 +3,7 @@ import { actionTypes } from '../constants/actionTypes';
 let isLoggedIn;
 
 try {
-    isLoggedIn = !!sessionStorage.getItem('sessionId');
+    isLoggedIn = !!localStorage.getItem('sessionId');
 } catch (e) { }
 
 const initialState = {

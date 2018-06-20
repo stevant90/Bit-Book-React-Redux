@@ -7,13 +7,17 @@ import AppContainer from './Components/AppContainer';
 import Login from './Components/Auth/Login';
 import Register from './Components/Auth/Register';
 
-import Home from './Components/Home';
+import UsersContainer from './Components/People/UsersContainer';
+import SingleUserContainer from './Components/People/SingleUserContainer';
+import ProfileContainer from './Components/Profile/ProfileContainer';
+import NewsFeedContainer from './Components/NewsFeed/NewsFeedContainer';
+import SinglePostContainer from './Components/NewsFeed/SinglePostContainer';
 
 export default class Routes extends Component {
 
 	render() {
 		return (
-			<div style={{ width: '100%', height: '100%' }}>
+			<div className='MainPage'>
 				<HashRouter>
 					<Switch>
 
@@ -24,7 +28,7 @@ export default class Routes extends Component {
 								hasHeaderAndFooter={false}
 							/>
 						</Route>
-						
+
 						<Route path='/register'>
 							<AppContainer
 								Component={Register}
@@ -33,10 +37,26 @@ export default class Routes extends Component {
 							/>
 						</Route>
 
-						<Route path='/'>
-							<AppContainer Component={Home} />
+						<Route exact path='/'>
+							<AppContainer Component={NewsFeedContainer} />
 						</Route>
-				
+
+						<Route path='/feed/:type/:postId'>
+							<AppContainer Component={SinglePostContainer} />
+						</Route>
+
+						<Route exact path='/people'>
+							<AppContainer Component={UsersContainer} />
+						</Route>
+
+						<Route path='/people/:id'>
+							<AppContainer Component={SingleUserContainer} />
+						</Route>
+
+						<Route path='/profile'>
+							<AppContainer Component={ProfileContainer} />
+						</Route>
+
 					</Switch>
 				</HashRouter>
 			</div>

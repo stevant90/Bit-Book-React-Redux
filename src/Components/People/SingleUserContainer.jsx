@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Grid } from 'semantic-ui-react';
 
@@ -8,7 +9,7 @@ import { fetchProfile } from '../../Redux/actions/profile/profile';
 import SingleUser from './SingleUser';
 import UpdateProfileContainer from '../Profile/UpdateProfileContainer';
 
-class SingleUserContainer extends Component {
+class _SingleUserContainer extends Component {
 
     static propTypes = {
         user: PropTypes.object,
@@ -20,9 +21,9 @@ class SingleUserContainer extends Component {
     };
 
     componentDidMount() {
-        const userId = this.props.match.params.id;
+        const { id } = this.props.match.params;
 
-        this.props.fetchSingleUser(userId);
+        this.props.fetchSingleUser(id);
         this.props.fetchProfile();
     }
 
@@ -72,4 +73,6 @@ const mapDispatchToProps = dispatch => {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SingleUserContainer);
+const SingleUserContainer = connect(mapStateToProps, mapDispatchToProps)(_SingleUserContainer);
+
+export default withRouter(SingleUserContainer);

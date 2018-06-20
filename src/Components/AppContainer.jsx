@@ -8,15 +8,13 @@ import AppHeader from './Header';
 
 const Aux = props => props.children;
 
-class _AppContainer extends Component {
+export class _AppContainer extends Component {
 
     static propTypes = {
         Component: PropTypes.any,
         requiresLogin: PropTypes.bool,
         hasHeaderAndFooter: PropTypes.bool,
-        isLoggedIn: PropTypes.bool,
-        sessionId: PropTypes.string,
-        history: PropTypes.object
+        isLoggedIn: PropTypes.bool
     };
 
     static defaultProps = {
@@ -26,8 +24,8 @@ class _AppContainer extends Component {
 
     sessionStorageEnabled = () => {
         try {
-            sessionStorage.setItem('test', 'test');
-            sessionStorage.getItem('test');
+            localStorage.setItem('test', 'test');
+            localStorage.getItem('test');
 
             return true;
         } catch (e) {
@@ -55,12 +53,12 @@ class _AppContainer extends Component {
                     : <Component />}
             </Aux>
         ) : (
-                <main className='sessionStorageError h-textCenter'>
-                    <img src='../../assets/img/error.gif' className='SessionStorageError__photo' />
+                <main className='localStorageError h-textCenter'>
+                    <img src='../../assets/img/error.gif' className='LocalStorageError__photo' />
                     <Message
                         error
                         className='h-textCenter'
-                        header='Session storage unavailable'
+                        header='Local storage unavailable'
                         content='This app requires you to have cookies enabled. We use it to authenticate you and to save your preferences. Please enable it and refresh the page.'
                     />
                 </main>
@@ -71,7 +69,6 @@ class _AppContainer extends Component {
 const mapStateToProps = state => {
     return {
         isLoggedIn: state.loginStatus.isLoggedIn,
-        sessionId: state.loginStatus.sessionId
     };
 }
 
