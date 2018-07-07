@@ -10,7 +10,7 @@ import ImagePostsComponent from './ImagePostsComponent';
 import VideoPostsComponent from './VideoPostsComponent';
 import FilterPosts from '../Shared/FilterPosts';
 
-class NewsFeedContainer extends Component {
+export class NewsFeedContainer extends Component {
     constructor(props) {
         super(props);
 

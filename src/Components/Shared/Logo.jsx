@@ -6,7 +6,7 @@ const Logo = props => {
         <div className='Logo h-text-center h-marginB--sm'>
             <span className='Logo__inner'>
                 <Icon name='book' size='large' />
-                Bit Book
+                my Book
             </span>
         </div>
     );

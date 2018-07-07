@@ -47,7 +47,7 @@ class _AppHeader extends Component {
 
     render() {
 
-        const menuHeader = <h2>Bit Book &nbsp;<Icon name='book' size='large' /></h2>
+        const menuHeader = <h2>my Book &nbsp;<Icon name='book' size='large' /></h2>
 
         return (
             <Segment inverted className='AppHeader h-noMargin'>
