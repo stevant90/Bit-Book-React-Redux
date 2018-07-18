@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { Grid, Icon, Popup } from 'semantic-ui-react';
 
@@ -28,6 +27,11 @@ class UsersContainer extends Component {
         errorMessage: PropTypes.string
 
     }
+
+    // static getDerivedStateFromProps() {
+    //     this.setState({ users: this.props.users });
+
+    // }
 
     componentWillReceiveProps() {
         this.setState({ users: this.props.users });
