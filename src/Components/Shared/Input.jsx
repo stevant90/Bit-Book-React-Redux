@@ -23,7 +23,8 @@ export default class SimpleInput extends Component {
         isValid: PropTypes.bool,
         value: PropTypes.string,
         label: PropTypes.string,
-        textArea: PropTypes.string
+        textArea: PropTypes.string,
+        input: PropTypes.bool
     };
 
     static defaultProps = {
@@ -75,6 +76,7 @@ export default class SimpleInput extends Component {
             value,
             label,
             textArea,
+            input,
             ...rest
         } = this.props;
 

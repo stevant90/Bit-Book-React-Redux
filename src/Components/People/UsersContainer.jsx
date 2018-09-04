@@ -28,14 +28,14 @@ class UsersContainer extends Component {
 
     }
 
-    // static getDerivedStateFromProps() {
-    //     this.setState({ users: this.props.users });
-
-    // }
-
     componentWillReceiveProps() {
         this.setState({ users: this.props.users });
+
     }
+
+    // componentDidUpdate() {
+    //     this.setState({ users: this.props.users });
+    // }
 
     componentDidMount() {
         this.props.fetchUsers();

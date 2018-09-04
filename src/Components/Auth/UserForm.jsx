@@ -99,6 +99,7 @@ export default class UserForm extends Component {
                             Login
                         </h2>
                         <SimpleInput
+                            input
                             type='username'
                             placeholder='Email'
                             name='username'
@@ -108,6 +109,7 @@ export default class UserForm extends Component {
                         />
 
                         <SimpleInput
+                            input
                             type='password'
                             placeholder='Password'
                             name='password'
@@ -147,6 +149,7 @@ export default class UserForm extends Component {
                         </h2>
 
                         <SimpleInput
+                            input
                             type='text'
                             placeholder='Name'
                             name='name'
@@ -155,6 +158,7 @@ export default class UserForm extends Component {
 
                         />
                         <SimpleInput
+                            input
                             type='text'
                             placeholder='Username'
                             name='username'
@@ -163,6 +167,7 @@ export default class UserForm extends Component {
 
                         />
                         <SimpleInput
+                            input
                             type='email'
                             placeholder='Email'
                             name='email'
@@ -171,6 +176,7 @@ export default class UserForm extends Component {
 
                         />
                         <SimpleInput
+                            input
                             type='password'
                             placeholder='Password'
                             name='password'
@@ -179,6 +185,7 @@ export default class UserForm extends Component {
 
                         />
                         <SimpleInput
+                            input
                             type='password'
                             placeholder='Repeat password'
                             name='repeatPassword'

@@ -15,12 +15,11 @@ export default class SimpleForm extends Component {
         formErrorHeader: PropTypes.string,
         children: PropTypes.any,
         formSuccessHeader: PropTypes.string,
-        formSuccess: PropTypes.string
+        formSuccess: PropTypes.string,
     };
 
     handleSubmit = () => {
         const fieldsValidState = this.fields.filter(Boolean).map(field => field.validateInput());
-
         if (fieldsValidState.every(Boolean)) {
             this.props.onSubmit();
             this.fields.map(field => {
@@ -49,13 +48,13 @@ export default class SimpleForm extends Component {
                 {...rest}
             >
 
-                {children.map((child, index) => {
+                {children.map(child => {
                     if (!child.type) {
                         return child;
                     }
 
-                    return child.type.name === 'SimpleInput'
-                        ? { ...child, ref: el => { this.fields[index] = el } }
+                    return child.props.input
+                        ? { ...child, ref: el => { this.fields.push(el) } }
                         : child;
                 })}
 
