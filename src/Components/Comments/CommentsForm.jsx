@@ -55,6 +55,7 @@ export default class CommentsForm extends Component {
                     formErrorHeader='Something went wrong!'
                 >
                     <SimpleInput
+                        input
                         type='text'
                         placeholder='Enter comment'
                         textArea='textArea'

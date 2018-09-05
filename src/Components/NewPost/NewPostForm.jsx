@@ -132,6 +132,7 @@ export default class NewPostForm extends Component {
             >
                 {type === 'text'
                     && <SimpleInput
+                        input
                         type='text'
                         textArea='textArea'
                         placeholder='Enter text'
@@ -143,6 +144,7 @@ export default class NewPostForm extends Component {
                 {type === 'image'
                     &&
                     <SimpleInput
+                        input
                         type='url'
                         placeholder='Enter image url'
                         name='imageUrl'
@@ -152,6 +154,7 @@ export default class NewPostForm extends Component {
 
                 {type === 'video'
                     && <SimpleInput
+                        input
                         type='url'
                         placeholder='Enter video url'
                         name='videoUrl'

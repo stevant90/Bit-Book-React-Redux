@@ -48,13 +48,13 @@ export default class SimpleForm extends Component {
                 {...rest}
             >
 
-                {children.map(child => {
+                {children.map((child, index) => {
                     if (!child.type) {
                         return child;
                     }
 
                     return child.props.input
-                        ? { ...child, ref: el => { this.fields.push(el) } }
+                        ? { ...child, ref: el => { this.fields[index] = el } }
                         : child;
                 })}
 

@@ -116,15 +116,8 @@ export default class UpdateForm extends Component {
     render() {
 
         const {
-            updateProfile,
             formError,
             isLoading,
-            close,
-            children,
-            clearFormStatus,
-            refreshProfile,
-            profile,
-            uploadImage,
         } = this.props;
 
 
@@ -137,6 +130,7 @@ export default class UpdateForm extends Component {
             >
 
                 <SimpleInput
+                    input
                     type='text'
                     placeholder='Name'
                     label='Name'
@@ -146,6 +140,7 @@ export default class UpdateForm extends Component {
                     value={this.state.name}
                 />
                 <SimpleInput
+                    input
                     type='email'
                     placeholder='Email'
                     label='Email'
@@ -155,6 +150,7 @@ export default class UpdateForm extends Component {
                     value={this.state.email}
                 />
                 <SimpleInput
+                    input
                     type='text'
                     placeholder='Image url'
                     label='Image url'
@@ -164,6 +160,7 @@ export default class UpdateForm extends Component {
                     value={this.state.avatarUrl}
                 />
                 <SimpleInput
+                    input
                     type='text'
                     placeholder='About'
                     label='About'
@@ -173,6 +170,7 @@ export default class UpdateForm extends Component {
                     value={this.state.about}
                 />
                 <SimpleInput
+                    input
                     type='text'
                     placeholder='About Short'
                     label='About Short'
